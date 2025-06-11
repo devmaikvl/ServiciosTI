@@ -1,0 +1,145 @@
+
+.container2 {
+    display: grid;
+    width: 100vw;              
+    height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "Header"
+      "Trabajo"
+      "Footer";
+  }
+  
+  
+  .Header {
+    grid-area: Header;
+    background-color: #0077cc;
+    color: #f9f9f9;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 3px solid #005ea6;
+    font-family: Arial, sans-serif;
+  }
+  
+  
+  .Trabajo {
+    grid-area: Trabajo;
+    padding: 20px;
+    background-color: #f9f9f9;
+    overflow-y: auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .Trabajo h2 {
+    margin-top: 0;
+    color: #0077cc;
+    border-bottom: 2px solid #0077cc;
+    padding-bottom: 5px;
+  }
+  
+  
+  .form-agregar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .form-agregar input,
+  .form-agregar select {
+    padding: 8px;
+    border: 1px solid #0077cc;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+    min-width: 120px;
+    flex: 1;
+    box-sizing: border-box;
+    background-color: #fff;
+  }
+  
+  .form-agregar select {
+    background-color: #f9f9f9;
+    cursor: pointer;
+  }
+  
+  .btn-agregar {
+    background-color: #0077cc;
+    color: #f9f9f9;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+    flex-shrink: 0;
+  }
+  
+  .btn-agregar:hover {
+    background-color: #005ea6;
+  }
+  
+  /* ── Tabla de Usuarios ─────────────────────────────────────────────────────── */
+  .usuariosTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .usuariosTable th,
+  .usuariosTable td {
+    border: 1px solid #0077cc;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .usuariosTable th {
+    background-color: #0077cc;
+    color: #f9f9f9;
+  }
+  
+  .usuariosTable tr:nth-child(even) {
+    background-color: rgba(0, 119, 204, 0.05);
+  }
+  
+ 
+  button {
+    padding: 6px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .btn-editar {
+    background-color: #0077cc;
+    color: #f9f9f9;
+  }
+  
+  .btn-editar:hover {
+    background-color: #005ea6;
+  }
+  
+  .btn-eliminar {
+    background-color: #cc0000;
+    color: #f9f9f9;
+    margin-left: 5px;
+  }
+  
+  .btn-eliminar:hover {
+    background-color: #990000;
+  }
+  
+
+  .Footer {
+    grid-area: Footer;
+    background-color: #0077cc;
+    color: #f9f9f9;
+    text-align: center;
+    padding: 10px;
+    border-top: 3px solid #005ea6;
+    font-family: Arial, sans-serif;
+  }
+  

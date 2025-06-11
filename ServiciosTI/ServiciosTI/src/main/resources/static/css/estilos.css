@@ -1,0 +1,231 @@
+.container {  display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1.2fr 0.8fr;
+    grid-template-rows: 1.0fr 1.4fr 0.5fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "Header Header Header"
+      "Trabajo Trabajo Noticias"
+      "Footer Footer Footer";
+}
+  
+.Header { grid-area: Header; color: blue;
+    grid-area: Header;
+    color:black;
+    background-image: url('/img/Coopesana2.jpg');
+    background-color: #007aff ;
+    background-size: cover;       
+    background-position: center;  
+    background-repeat: no-repeat;
+    border: 2px solid #0077cc; }
+
+    .nav-header {
+        margin-top: 10px;
+        display: flex;
+        gap: 10px;
+    }
+      
+    .nav-header button {
+        padding: 10px 15px;
+        font-size: 14px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007aff;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+      
+    .nav-header button:hover {
+      background-color: #005fa3;;
+    }
+
+  
+.Footer {
+        grid-area: Footer;
+        padding: 20px;
+        border: 2px solid #0077cc;
+        background-color: #0077cc;
+        color: #ffffff;
+        font-size: 14px;
+        text-align: center;}
+  
+.Trabajo { grid-area: Trabajo;
+    padding: 20px;
+    border: 2px solid #0077cc;
+    background-color: #f9f9f9;
+    background-image: url('/img/saludinfo.png');
+  
+    
+    .Trabajo h2 {
+        margin-top: 0;
+        color: #0077cc;
+      }
+      .lista-tareas {
+        margin-top: 10px;
+        padding: 10px;
+        border: 1px solid #999;
+        background-color: rgba(249, 249, 249, 0.5);
+        min-height: 300px;
+      }
+    }
+    .Trabajo button {
+        padding: 10px 15px;
+        font-size: 14px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007aff;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .Trabajo button:hover{
+        background-color: #005fa3;
+    }
+
+    .Trabajou { grid-area: Trabajo;
+      padding: 20px;
+      border: 2px solid #0077cc;
+      background-color: #f9f9f9;
+      background-image: url('/img/saludinfo.png');
+    
+      
+      .Trabajou h2 {
+          margin-top: 0;
+          color: #0077cc;
+        }
+        .lista-tareas {
+          margin-top: 10px;
+          padding: 10px;
+          border: 1px solid #999;
+          background-color: rgba(249, 249, 249);
+          min-height: 300px;
+        }
+      }
+      .Trabajou button {
+          padding: 10px 15px;
+          font-size: 14px;
+          border: none;
+          border-radius: 5px;
+          background-color: #007aff;
+          color: white;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+      }
+      .Trabajou button:hover{
+          background-color: #005fa3;
+      }
+
+.Noticias {
+        grid-area: Noticias;
+        padding: 20px;
+        border: 2px solid #0077cc;
+        background-color: #f9f9f9;
+        border-left: 2px solid #ccc;
+      }
+      
+      .noticia {
+        display: flex;
+        gap: 10px;
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 10px;
+        align-items: flex-start;
+      }
+      
+      .noticia-img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 4px;
+      }
+      
+      .noticia-texto h3 {
+        margin: 0 0 5px 0;
+        font-size: 16px;
+        color: #333;
+      }
+      
+      .noticia-texto p {
+        margin: 0;
+        font-size: 14px;
+        color: #555;
+      }
+      .nota-informativa {
+        margin-top: 15px;
+        font-size: 13px;
+        color: #666;
+        padding: 10px;
+        border-top: 1px dashed #ccc;
+      }
+
+.login-page {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f2f5;
+        font-family: Arial, sans-serif;
+      }
+      
+      .login-container {
+        background-color: white;
+        padding: 30px;
+        border: 2px solid #0077cc;
+        border-radius: 10px;
+        width: 100%;
+        max-width: 400px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      }
+      
+      .login-container h2 {
+        margin-top: 0;
+        color: #0077cc;
+        text-align: center;
+      }
+      
+      .login-container label {
+        display: block;
+        margin-top: 15px;
+        font-weight: bold;
+      }
+      
+      .login-container input[type="text"],
+      .login-container input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+      
+      .login-container button {
+        margin-top: 20px;
+        width: 100%;
+        padding: 10px;
+        background-color: #0077cc;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      
+      .login-container button:hover {
+        background-color: #005fa3;
+      }
+      .titulo-principal {
+        text-align: center;
+        font-size: 24px;
+        color: #004080;
+        margin-bottom: 10px;
+      }
+
+
+
+
+ 

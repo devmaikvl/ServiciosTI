@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Iniciar Sesión - ServiciosTI</title>
+  <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body class="login-page">
+
+  <div class="login-container">
+    <h1 class="titulo-principal">Servicios TI Coopesana</h1>
+    <h2>Iniciar Sesión</h2>
+    <form action="/procesar-login" method="POST">
+      <label for="usuario">Usuario</label>
+      <input type="text" id="usuario" name="usuario" required>
+
+      <label for="contrasena">Contraseña</label>
+      <input type="password" id="contrasena" name="contrasena" required>
+
+      <button type="submit">Ingresar</button>
+    </form>
+  </div>
+
+</body>
+</html>
