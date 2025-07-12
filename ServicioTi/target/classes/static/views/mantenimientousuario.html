@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mantenimiento Usuarios</title>
+  <link rel="stylesheet" href="/css/estilosusuario.css" />
+</head>
+<body>
+  <div class="container2">
+    <header class="Header">
+      <h1>Mantenimiento Usuarios</h1>
+    </header>
+
+    <section class="Trabajo">
+      <h2>Lista de Usuarios</h2>
+
+      
+      <form id="formAgregarUsuario" class="form-agregar">
+        <input type="text" name="nombre" placeholder="Nombre" required />
+        <input type="text" name="usuario" placeholder="Usuario" required />
+        <input type="password" name="contrasena" placeholder="Contraseña" required />
+        <input type="text" name="departamento" placeholder="Departamento" required />
+        <select name="tipousuario" required>
+          <option value="" disabled selected>Tipo Usuario</option>
+          <option value="admin">Admin</option>
+          <option value="standard">Standard</option>
+        </select>
+        <button type="submit" class="btn-agregar">Agregar Usuario</button>
+      </form>
+
+      
+      <table class="usuariosTable">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Usuario</th>
+            <th>Departamento</th>
+            <th>Tipo Usuario</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Juan Pérez</td>
+            <td>jperez</td>
+            <td>Ventas</td>
+            <td>Admin</td>
+            <td>
+              <button class="btn-editar">Editar</button>
+              <button class="btn-eliminar">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Ana Gómez</td>
+            <td>agomez</td>
+            <td>Marketing</td>
+            <td>Standard</td>
+            <td>
+              <button class="btn-editar">Editar</button>
+              <button class="btn-eliminar">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer class="Footer">
+      <p>
+        Sistema desarrollado por <strong>Michel Vargas Lira</strong> como proyecto de programación para la 
+        <strong>Universidad Internacional San Isidro Labrador</strong>, para la empresa <strong>Coopesana</strong>.
+      </p>
+    </footer>
+  </div>
+</body>
+</html>

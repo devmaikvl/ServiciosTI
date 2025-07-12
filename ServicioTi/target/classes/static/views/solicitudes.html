@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Solicitudes Soporte TI</title>
+  <link rel="stylesheet" href="/css/estilosusuario.css" />
+</head>
+<body>
+  <div class="container2">
+    <header class="Header">
+      <h1>Gestión de Solicitudes de Soporte TI</h1>
+    </header>
+
+    <section class="Trabajo">
+      <h2>Crear Solicitud</h2>
+      <form id="formSolicitud" class="form-agregar">
+        <input type="text" name="usuario" placeholder="Usuario" required />
+        <input type="text" name="area" placeholder="Área" required />
+        <input type="datetime-local" name="fechaHora" required />
+        <input type="text" name="descripcion" placeholder="Descripción del problema" required />
+        <input type="text" name="tecnico" placeholder="Técnico asignado (opcional)" />
+        <input type="text" name="solucion" placeholder="Solución (si aplica)" />
+        <button type="submit" class="btn-agregar">Guardar Solicitud</button>
+      </form>
+
+      <h2>Solicitudes Registradas</h2>
+      <table class="usuariosTable">
+        <thead>
+          <tr>
+            <th>Usuario</th>
+            <th>Área</th>
+            <th>Fecha y Hora</th>
+            <th>Descripción</th>
+            <th>Técnico</th>
+            <th>Solución</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+          <tr>
+            <td>Maria López</td>
+            <td>Contabilidad</td>
+            <td>2025-06-10 10:30</td>
+            <td>No imprime la impresora</td>
+            <td>Pedro Sánchez</td>
+            <td>Se reinstaló el driver</td>
+            <td>
+              <button class="btn-editar">Editar</button>
+              <button class="btn-eliminar">Cerrar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer class="Footer">
+        <p>
+            Sistema desarrollado por <strong>Michel Vargas Lira</strong> como proyecto de programación para la 
+            <strong>Universidad Internacional San Isidro Labrador</strong>, para la empresa <strong>Coopesana</strong>.
+          </p>
+    </footer>
+  </div>
+</body>
+</html>
