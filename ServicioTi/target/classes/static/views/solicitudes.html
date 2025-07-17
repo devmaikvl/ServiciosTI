@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Solicitudes Soporte TI</title>
+  <title>Gestión de Solicitudes</title>
   <link rel="stylesheet" href="/css/estilosusuario.css" />
+  <script src="/js/solicitudes.js"></script>
 </head>
 <body>
   <div class="container2">
@@ -15,12 +16,25 @@
     <section class="Trabajo">
       <h2>Crear Solicitud</h2>
       <form id="formSolicitud" class="form-agregar">
-        <input type="text" name="usuario" placeholder="Usuario" required />
-        <input type="text" name="area" placeholder="Área" required />
-        <input type="datetime-local" name="fechaHora" required />
+        <input type="text" name="titulo" placeholder="Título" required />
         <input type="text" name="descripcion" placeholder="Descripción del problema" required />
-        <input type="text" name="tecnico" placeholder="Técnico asignado (opcional)" />
-        <input type="text" name="solucion" placeholder="Solución (si aplica)" />
+        
+        <select name="estado" required>
+          <option value="NUEVO">Nuevo</option>
+          <option value="PROCESANDO">Procesando</option>
+          <option value="SOLUCIONADO">Solucionado</option>
+          <option value="PENDIENTE">Pendiente</option>
+        </select>
+
+        <select name="prioridad" required>
+          <option value="BAJA">Baja</option>
+          <option value="MEDIA">Media</option>
+          <option value="ALTA">Alta</option>
+        </select>
+
+        <!-- Suponiendo que el usuario está autenticado, tomamos su ID del JWT -->
+        <input type="hidden" name="solicitanteId" id="solicitanteId" />
+
         <button type="submit" class="btn-agregar">Guardar Solicitud</button>
       </form>
 
@@ -28,39 +42,30 @@
       <table class="usuariosTable">
         <thead>
           <tr>
-            <th>Usuario</th>
-            <th>Área</th>
-            <th>Fecha y Hora</th>
+            <th>Título</th>
             <th>Descripción</th>
-            <th>Técnico</th>
-            <th>Solución</th>
+            <th>Estado</th>
+            <th>Prioridad</th>
+            <th>Fecha</th>
+            <th>Solicitante</th>
             <th>Acciones</th>
           </tr>
         </thead>
-        <tbody>
-        
-          <tr>
-            <td>Maria López</td>
-            <td>Contabilidad</td>
-            <td>2025-06-10 10:30</td>
-            <td>No imprime la impresora</td>
-            <td>Pedro Sánchez</td>
-            <td>Se reinstaló el driver</td>
-            <td>
-              <button class="btn-editar">Editar</button>
-              <button class="btn-eliminar">Cerrar</button>
-            </td>
-          </tr>
+        <tbody id="tablaSolicitudes">
+          <!-- Se llenará dinámicamente desde JS -->
         </tbody>
       </table>
     </section>
 
     <footer class="Footer">
-        <p>
-            Sistema desarrollado por <strong>Michel Vargas Lira</strong> como proyecto de programación para la 
-            <strong>Universidad Internacional San Isidro Labrador</strong>, para la empresa <strong>Coopesana</strong>.
-          </p>
+      <p>
+        Sistema desarrollado por <strong>Michel Vargas Lira</strong> como proyecto de programación para la 
+        <strong>Universidad Internacional San Isidro Labrador</strong>, para la empresa <strong>Coopesana</strong>.
+      </p>
     </footer>
   </div>
+  <input type="hidden" name="solicitanteId" id="solicitanteId" />
+
+
 </body>
 </html>

@@ -6,11 +6,11 @@ public class RegisterRequest {
     private String email;
     private String password;
 
-    // Constructor vacío
+
     public RegisterRequest() {
     }
 
-    // Constructor con todos los campos
+
     public RegisterRequest(String nombre, String username, String email, String password) {
         this.nombre = nombre;
         this.username = username;
@@ -18,7 +18,7 @@ public class RegisterRequest {
         this.password = password;
     }
 
-    // Getters y setters
+
     public String getNombre() {
         return nombre;
     }

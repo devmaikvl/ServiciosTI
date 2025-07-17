@@ -4,14 +4,16 @@
   <meta charset="UTF-8">
   <title>ServiciosTI</title>
   <link rel="stylesheet" href="/css/estilos.css">
+  <script src="/js/dashboardtecnico.js"></script>
 </head>
 <body>
     <div class="container">
         <div class="Header">
             <nav class="nav-header">
-                <button onclick="location.href='#login'">Cerrar Sesion</button>
-                <button onclick="location.href='#contacto'">Mantenimiento Usuarios</button>
-                <button onclick="location.href='#info'">Informes de TI</button>
+                <button id="logout">Cerrar Sesion</button>
+                <button id="btn-mantenimiento">Mantenimiento de Usuarios</button>
+                <button id="contactanos" onclick="window.location.href='/views/contacto.html'">Contáctanos</button>
+                <button id="Informacion" onclick="window.location.href='/views/informacion.html'">Información</button>
               </nav>
         </div>
 
@@ -24,7 +26,7 @@
 
         <div class="Trabajou">
             <p>Solicitudes</p>
-            <button onclick="location.href='#NuevaTarea'">Nueva Tarea</button>
+            <button id="Solicitudes">Gestion de Solicitudes</button>
             <div class="lista-tareas">
     
             </div>

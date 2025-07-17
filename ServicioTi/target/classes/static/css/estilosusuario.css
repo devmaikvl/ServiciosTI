@@ -79,6 +79,34 @@
   .btn-agregar:hover {
     background-color: #005ea6;
   }
+
+  .btn-editar {
+  background-color: #007aff;
+  color: white;
+}
+
+.btn-editar:hover {
+  background-color: #005fa3;
+}
+
+.btn-cerrar {
+  background-color: #ffaa00;
+  color: black;
+}
+
+.btn-cerrar:hover {
+  background-color: #cc8800;
+}
+
+.btn-eliminar {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.btn-eliminar:hover {
+  background-color: #c0392b;
+}
+
   
   /* ── Tabla de Usuarios ─────────────────────────────────────────────────────── */
   .usuariosTable {

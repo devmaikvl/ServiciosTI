@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <title>ServiciosTI</title>
   <link rel="stylesheet" href="/css/estilos.css">
+  <script src="/js/dashboardusuario.js"></script>
 </head>
 <body>
     <div class="container">
         <div class="Header">
             <nav class="nav-header">
-                <button onclick="location.href='#login'">Cerrar Sesion</button>
-                <button onclick="location.href='#contacto'">Contáctanos</button>
-                <button onclick="location.href='#info'">Información</button>
+                <button id="logout">Cerrar Sesion</button>
+                <button id="contactanos" onclick="window.location.href='/views/contacto.html'">Contáctanos</button>
+                <button id="Informacion" onclick="window.location.href='/views/informacion.html'">Información</button>
               </nav>
         </div>
 
@@ -24,7 +25,7 @@
 
         <div class="Trabajou">
             <p>Solicitudes</p>
-            <button onclick="location.href='#NuevaTarea'">Nueva Tarea</button>
+            <button id="solicitudnueva" onclick="window.location.href='/views/nuevasolicitud.html'">Nueva Tarea</button>
             <div class="lista-tareas">
     
             </div>
@@ -59,5 +60,6 @@
         </div>
           
       </div>
+      
 </body>
 </html>

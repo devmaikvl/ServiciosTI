@@ -8,9 +8,11 @@
 <body class="login-page">
 
   <div class="login-container">
+    <div id="error-msg" style="color:red; margin-top:10px;"></div>
     <h1 class="titulo-principal">Servicios TI Coopesana</h1>
     <h2>Iniciar Sesión</h2>
-    <form action="/procesar-login" method="POST">
+
+    <form id="login-form">
       <label for="usuario">Usuario</label>
       <input type="text" id="usuario" name="usuario" required>
 
@@ -19,7 +21,10 @@
 
       <button type="submit">Ingresar</button>
     </form>
+
+    <p id="error-msg" style="color:red;"></p>
   </div>
 
+  <script src="/js/login.js"></script>
 </body>
 </html>

@@ -26,29 +26,29 @@ public class JwtService {
     }
 
     private String getToken(Map<String, Object> extraClaims, UserDetails user) {
-        // Obtenemos el rol del usuario
+
         String role = user.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .findFirst()
-                .orElse("ROLE_USER");  // Si no hay rol, asignamos un valor por defecto (ROLE_USER)
+                .orElse("ROLE_USER");
 
-        // Si tienes una clase 'Usuario', realiza el cast para acceder al id
+
         if (user instanceof Usuarios) {
-            Usuarios usuario = (Usuarios) user;  // Hace el cast a tu clase Usuario
-            extraClaims.put("id", usuario.getId());  // Agrega el id al JWT
+            Usuarios usuario = (Usuarios) user;
+            extraClaims.put("id", usuario.getId());
         }
 
-        // Añadimos el rol al JWT
-        extraClaims.put("role", role);  // Agregar el rol al JWT
+
+        extraClaims.put("role", role);
 
         return Jwts
                 .builder()
-                .setClaims(extraClaims)  // Claims adicionales (como el rol y el id)
-                .setSubject(user.getUsername())  // El nombre de usuario
-                .setIssuedAt(new Date(System.currentTimeMillis()))  // Fecha de emisión
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60))  // Expiración en 1 hora
-                .signWith(getKey(), SignatureAlgorithm.HS256)  // Firmado con la clave secreta
-                .compact();  // Retorna el JWT
+                .setClaims(extraClaims)
+                .setSubject(user.getUsername())
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60))
+                .signWith(getKey(), SignatureAlgorithm.HS256)
+                .compact();
     }
 
 

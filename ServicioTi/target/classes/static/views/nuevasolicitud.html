@@ -3,56 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nueva Solicitud de Soporte TI</title>
+  <title>Gestión de Solicitudes</title>
   <link rel="stylesheet" href="/css/estilosusuario.css" />
+  <script src="/js/solicitudesusuario.js" defer></script>
 </head>
 <body>
   <div class="container2">
     <header class="Header">
-      <h1>Registrar Nueva Solicitud</h1>
+      <h1>Gestión de Solicitudes de Soporte TI</h1>
     </header>
 
     <section class="Trabajo">
       <h2>Crear Solicitud</h2>
       <form id="formSolicitud" class="form-agregar">
-        <input type="text" name="usuario" placeholder="Usuario" required />
-        <input type="text" name="area" placeholder="Área" required />
-        <input type="datetime-local" name="fechaHora" required />
+        <input type="text" name="titulo" placeholder="Título" required />
         <input type="text" name="descripcion" placeholder="Descripción del problema" required />
+
+        <!-- Estado fijo como NUEVO -->
+        <input type="hidden" name="estado" value="NUEVO" />
+
+        <select name="prioridad" required>
+          <option value="BAJA">Baja</option>
+          <option value="MEDIA">Media</option>
+          <option value="ALTA">Alta</option>
+        </select>
+
+        <!-- ID del solicitante se inyecta desde el token -->
+        <input type="hidden" name="solicitanteId" id="solicitanteId" />
+
         <button type="submit" class="btn-agregar">Guardar Solicitud</button>
       </form>
 
-      <h2>Solicitudes Enviadas</h2>
+      <h2>Mis Solicitudes</h2>
       <table class="usuariosTable">
         <thead>
           <tr>
-            <th>Usuario</th>
-            <th>Área</th>
-            <th>Fecha y Hora</th>
+            <th>Título</th>
             <th>Descripción</th>
+            <th>Estado</th>
+            <th>Prioridad</th>
+            <th>Fecha</th>
             <th>Acciones</th>
           </tr>
         </thead>
-        <tbody>
-        
-          <tr>
-            <td>Juan Pérez</td>
-            <td>Sistemas</td>
-            <td>2025-06-10 08:45</td>
-            <td>No hay acceso a Internet</td>
-            <td>
-              <button class="btn-editar">Editar</button>
-            </td>
-          </tr>
+        <tbody id="tablaSolicitudes">
+          <!-- Se llenará dinámicamente desde solicitudes_usuario.js -->
         </tbody>
       </table>
     </section>
 
     <footer class="Footer">
-        <p>
-            Sistema desarrollado por <strong>Michel Vargas Lira</strong> como proyecto de programación para la 
-            <strong>Universidad Internacional San Isidro Labrador</strong>, para la empresa <strong>Coopesana</strong>.
-          </p>
+      <p>
+        Sistema desarrollado por <strong>Michel Vargas Lira</strong> como proyecto de programación para la 
+        <strong>Universidad Internacional San Isidro Labrador</strong>, para la empresa <strong>Coopesana</strong>.
+      </p>
     </footer>
   </div>
 </body>

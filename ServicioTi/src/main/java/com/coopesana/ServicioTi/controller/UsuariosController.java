@@ -39,11 +39,13 @@ public class UsuariosController {
         return usuariosService.buscarUsuariosPorId(id);
     }
 
-    @PutMapping("/usuario/{id}")
-    public ResponseEntity<Usuarios> modificarUsuario2(@PathVariable Long id, @RequestBody Usuarios usuarios) {
-        usuarios.setId(id); // Asegurar que el ID del usuario es el correcto
-        Usuarios usuarioModificado = usuariosService.modificarUsuarios(usuarios);
-        return ResponseEntity.ok(usuarioModificado);}
+
+    @PutMapping("/usuarios/{id}")
+    public ResponseEntity<Usuarios> modificarUsuario(@PathVariable Long id, @RequestBody Usuarios usuario) {
+        usuario.setId(id);
+        Usuarios actualizado = usuariosService.modificarUsuarios(usuario);
+        return ResponseEntity.ok(actualizado);
+    }
 
 
 }

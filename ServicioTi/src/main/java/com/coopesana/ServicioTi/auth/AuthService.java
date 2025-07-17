@@ -19,7 +19,7 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
     private final PasswordEncoder passwordEncoder;
 
-    // Constructor manual (ya que no se usa @RequiredArgsConstructor)
+
     public AuthService(UsuariosRepository usuariosRepository,
                        JwtService jwtService,
                        AuthenticationManager authenticationManager,

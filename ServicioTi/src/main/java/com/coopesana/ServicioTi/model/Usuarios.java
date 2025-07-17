@@ -3,6 +3,7 @@ package com.coopesana.ServicioTi.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
@@ -126,7 +127,7 @@ public class Usuarios implements UserDetails {
     // Métodos de UserDetails
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(); // Aquí puedes usar roles si deseas: List.of(new SimpleGrantedAuthority(rol.name()))
+        return List.of(new SimpleGrantedAuthority(rol.name()));
     }
 
     @Override
