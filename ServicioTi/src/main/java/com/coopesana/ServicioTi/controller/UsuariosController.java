@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@RequestMapping
 @RestController
 public class UsuariosController {
     @Autowired
@@ -17,23 +17,25 @@ public class UsuariosController {
     @ResponseBody
     public List<Usuarios> listarUsuarios(){return usuariosService.listarUsuarios();}
 
-    @GetMapping("/usuario/buscar")
+    @GetMapping("/usuarios/buscar")
     @ResponseBody
     public List<Usuarios> buscarUsuariosPorNombre(@RequestParam String nombre) {
         return usuariosService.buscarUsuariosPorNombre(nombre);
     }
 
-    @PostMapping("/usuario")
+    @PostMapping("/usuarios")
     public Usuarios crearUsuario(@RequestBody Usuarios usuarios){
         return usuariosService.crearUsuarios(usuarios);
     }
 
-    @DeleteMapping("/usuario/{id}")
-    public void borrarUsuario(@PathVariable Long id){
+
+    @DeleteMapping("/usuarios/{id}")
+    public ResponseEntity<Void> eliminarUsuario(@PathVariable Long id) {
         usuariosService.borrarUsuarios(id);
+        return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/usuario/{id}")
+    @GetMapping("/usuarios/{id}")
     @ResponseBody
     public Usuarios buscarUsuarioPorId(@PathVariable Long id){
         return usuariosService.buscarUsuariosPorId(id);

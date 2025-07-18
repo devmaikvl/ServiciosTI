@@ -117,47 +117,48 @@ function delegarAccionesTabla() {
     });
 }
 
-function cargarUsuarioEnFormulario(id) {
+function cargarSolicitudEnFormulario(id) {
   const token = localStorage.getItem("token");
 
-  fetch(`http://localhost:8080/usuarios/${id}`, {
+  console.log("🔄 Cargando solicitud para edición - ID:", id);
+
+  fetch(`http://localhost:8080/solicitudes/${id}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   })
-    .then((res) => {
-      if (!res.ok) throw new Error("No se pudo cargar el usuario");
-      return res.json();
-    })
-    .then((usuario) => {
-      // Rellenar el formulario con datos
-      document.querySelector("input[name='nombre']").value =
-        usuario.nombre || "";
-      document.querySelector("input[name='usuario']").value =
-        usuario.username || "";
-      document.querySelector("input[name='contrasena']").value = ""; // no mostrar la contraseña
-      document.querySelector("select[name='departamento']").value =
-        usuario.departamento || "";
-      document.querySelector("select[name='tipousuario']").value =
-        usuario.rol || "";
+    .then((response) => response.json())
+    .then((solicitud) => {
+      console.log("📋 Datos de la solicitud:", solicitud);
 
-      // Guardar id para edición
+      document.querySelector("input[name='titulo']").value =
+        solicitud.titulo || "";
+      document.querySelector("input[name='descripcion']").value =
+        solicitud.descripcion || "";
+      // Cambiado a input hidden para estado
+      document.querySelector("input[name='estado']").value =
+        solicitud.estado || "NUEVO";
+      document.querySelector("select[name='prioridad']").value =
+        solicitud.prioridad || "MEDIA";
+      document.querySelector("input[name='solicitanteId']").value =
+        solicitud.solicitante?.id || "";
+
       document
-        .getElementById("formAgregarUsuario")
+        .getElementById("formSolicitud")
         .setAttribute("data-editando-id", id);
+      document.querySelector(".btn-agregar").textContent =
+        "Actualizar Solicitud";
 
-      // Cambiar texto botón
-      document.querySelector(".btn-agregar").textContent = "Actualizar Usuario";
+      console.log("✏️ Modo edición activado");
     })
-    .catch((err) => {
-      console.error("Error al cargar usuario para edición:", err);
+    .catch((error) => {
+      console.error("❌ Error al cargar solicitud para editar:", error);
     });
 }
 
-// Configura el formulario para crear o actualizar usuario
-function configurarFormularioUsuarios() {
+function configurarFormulario() {
   document
-    .getElementById("formAgregarUsuario")
+    .getElementById("formSolicitud")
     .addEventListener("submit", function (e) {
       e.preventDefault();
 
@@ -165,17 +166,20 @@ function configurarFormularioUsuarios() {
       const idEditando = e.target.getAttribute("data-editando-id");
       const method = idEditando ? "PUT" : "POST";
       const url = idEditando
-        ? `http://localhost:8080/usuarios/${idEditando}`
-        : "http://localhost:8080/usuario";
+        ? `http://localhost:8080/solicitudes/${idEditando}`
+        : "http://localhost:8080/solicitudes";
 
       const payload = {
-        nombre: document.querySelector("input[name='nombre']").value,
-        username: document.querySelector("input[name='usuario']").value,
-        password: document.querySelector("input[name='contrasena']").value,
-        departamento: document.querySelector("select[name='departamento']")
-          .value,
-        rol: document.querySelector("select[name='tipousuario']").value,
+        titulo: document.querySelector("input[name='titulo']").value,
+        descripcion: document.querySelector("input[name='descripcion']").value,
+        estado: document.querySelector("input[name='estado']").value,
+        prioridad: document.querySelector("select[name='prioridad']").value,
+        solicitanteId: parseInt(
+          document.querySelector("input[name='solicitanteId']").value
+        ),
       };
+
+      console.log("📤 Enviando formulario:", { method, url, payload });
 
       fetch(url, {
         method,
@@ -186,19 +190,22 @@ function configurarFormularioUsuarios() {
         body: JSON.stringify(payload),
       })
         .then((response) => {
-          if (!response.ok)
-            throw new Error("Error al guardar/actualizar usuario");
+          if (!response.ok) throw new Error("Error al guardar/actualizar");
           return response.json();
         })
         .then(() => {
+          console.log(
+            idEditando ? "✅ Solicitud actualizada" : "✅ Solicitud creada"
+          );
+          cargarSolicitudesUsuario();
           e.target.reset();
           e.target.removeAttribute("data-editando-id");
           document.querySelector(".btn-agregar").textContent =
-            "Agregar Usuario";
-          cargarUsuarios();
+            "Guardar Solicitud";
+          cargarIdSolicitanteDesdeToken();
         })
         .catch((error) => {
-          console.error("Error al guardar/actualizar usuario:", error);
+          console.error("❌ Error al guardar/actualizar:", error);
         });
     });
 }
